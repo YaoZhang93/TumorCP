@@ -21,6 +21,10 @@ Accepted by MICCAI 2021
   - Preprocess the data by
 
   `python experiment_planning/nnUNet_plan_and_preprocess.py -t 40 --verify_dataset_integrity`
+  
+  - Extract the tumor region in advance by
+
+  `python extract_tumors.py`
 
 * Configuration
 
