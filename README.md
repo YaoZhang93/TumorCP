@@ -6,7 +6,7 @@ This is the implementation for the paper:
 
 [TumorCP: A Simple but Effective Object-Level Data Augmentation for Tumor Segmentation](https://arxiv.org/pdf/2107.09843.pdf)
 
-MICCAI 2021
+Accepted by MICCAI 2021
 
 #### Usage
 
