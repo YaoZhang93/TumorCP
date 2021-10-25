@@ -12,19 +12,19 @@ MICCAI 2021
 
 * Data Preparation
 
-  Download the data from [MICCAI 2019 KiTS Challenge](https://kits19.grand-challenge.org/).
+  - Download the data from [MICCAI 2019 KiTS Challenge](https://kits19.grand-challenge.org/).
 
-  Convert the files' name by
+  - Convert the files' name by
 
   `python dataset_conversion/Task040_KiTS.py`
 
-  Preprocess the data by
+  - Preprocess the data by
 
   `python experiment_planning/nnUNet_plan_and_preprocess.py -t 40 --verify_dataset_integrity`
 
 * Configuration
 
-  The default configuration of `TumorCP` is in `./configuration.py`. You can modify the parameters in the Trainer. Here are the examples in [nnUNetTrainerV2_ObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ObjCPAllInter.py) and [nnUNetTrainerV2_ImgDAObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ImgDAObjCPAllInter.py).
+  The default configuration of `TumorCP` is in `./configuration.py`. You can modify the parameters in the Trainer. Here are the examples: [nnUNetTrainerV2_ObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ObjCPAllInter.py) and [nnUNetTrainerV2_ImgDAObjCPAllInter](https://github.com/YaoZhang93/TumorCP/blob/main/nnunet/training/network_training/nnUNetTrainerV2_ImgDAObjCPAllInter.py).
 
 * Train
 
@@ -32,7 +32,7 @@ MICCAI 2021
 
   `python run/run_training.py 3d_fullres nnUNetTrainerV2_ImgDAObjCPAllInter 40 0`
 
- `TumorCP` is integrated with the out-of-box [nnUNet](). Please refer to it for more details.
+ `TumorCP` is integrated with the out-of-box [nnUNet](https://github.com/MIC-DKFZ/nnUNet). Please refer to it for more details.
 
 #### Citation
 
@@ -51,5 +51,5 @@ If you find this code and paper useful for your research, please kindly cite our
 
 #### Acknowledgement
 
-`TumorCP` is integrated with the out-of-box [nnUNet]().
+`TumorCP` is integrated with the out-of-box [nnUNet](https://github.com/MIC-DKFZ/nnUNet).
 
