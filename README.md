@@ -1,6 +1,6 @@
 # TumorCP: A Simple but Effective Object-Level Data Augmentation for Tumor Segmentation
 
-### Paper
+## Paper
 
 This is the implementation for the paper:
 
@@ -8,7 +8,7 @@ This is the implementation for the paper:
 
 Accepted by MICCAI 2021
 
-### Usage
+## Usage
 
 * Data Preparation
 
@@ -34,7 +34,7 @@ Accepted by MICCAI 2021
 
  `TumorCP` is integrated with the out-of-box [nnUNet](https://github.com/MIC-DKFZ/nnUNet). Please refer to it for more details.
 
-### Citation
+## Citation
 
 If you find this code and paper useful for your research, please kindly cite our paper.
 
@@ -49,7 +49,7 @@ If you find this code and paper useful for your research, please kindly cite our
 }
 ```
 
-### Acknowledgement
+## Acknowledgement
 
 `TumorCP` is integrated with the out-of-box [nnUNet](https://github.com/MIC-DKFZ/nnUNet).
 
