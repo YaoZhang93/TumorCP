@@ -40,6 +40,12 @@ Accepted by MICCAI 2021
 
  `TumorCP` is integrated with the out-of-box [nnUNet](https://github.com/MIC-DKFZ/nnUNet). Please refer to it for more details.
 
+ * Test
+
+  - inference on the test data by
+
+  `python inference/predict_simple.py -i INPUT_PATH -o OUTPUT_PATH -t 40 -f 0 -tr nnUNetTrainerV2_ImgDAObjCPAllInter`
+
 ## Citation
 
 If you find this code and paper useful for your research, please kindly cite our paper.
