@@ -1253,24 +1253,24 @@ class DataLoader3D(SlimDataLoaderBase):
         return target_data
     
     def paste_to(self, center, data_patch, seg_patch, tgt_data, tgt_seg):
-        start_x, end_x, (ps_x, pe_x) = get_valid_center(center[0], data_patch.shape[0], tgt_data.shape[0])
-        start_y, end_y, (ps_y, pe_y) = get_valid_center(center[1], data_patch.shape[1], tgt_data.shape[1])
-        start_z, end_z, (ps_z, pe_z) = get_valid_center(center[2], data_patch.shape[2], tgt_data.shape[2])
-        seg_patch = seg_patch[ps_x:pe_x, ps_y: pe_y, ps_z:pe_z]
-        data_patch = data_patch[ps_x:pe_x, ps_y: pe_y, ps_z:pe_z]
-        if seg_patch.shape[-1] != tgt_data[start_x:end_x, start_y:end_y, start_z:end_z].shape[-1]:
+        start_z, end_z, (ps_z, pe_z) = get_valid_center(center[0], data_patch.shape[0], tgt_data.shape[0])
+        start_x, end_x, (ps_x, pe_x) = get_valid_center(center[1], data_patch.shape[1], tgt_data.shape[1])
+        start_y, end_y, (ps_y, pe_y) = get_valid_center(center[2], data_patch.shape[2], tgt_data.shape[2])
+        seg_patch = seg_patch[ps_z:pe_z, ps_x: pe_x, ps_y:pe_y]
+        data_patch = data_patch[ps_z:pe_z, ps_x: pe_x, ps_y:pe_y]
+        if seg_patch.shape[-1] != tgt_data[start_z:end_z, start_x:end_x, start_y:end_y].shape[-1]:
             end_z += 1
         if self.cp_configs['do_inter_cp'] and self.cp_configs['do_match']:
-            tgt_data[start_x:end_x, start_y:end_y, start_z:end_z]\
-                    = (seg_patch!=TUMOR_LABEL) * tgt_data[start_x:end_x, start_y:end_y, start_z:end_z] \
-                    + (seg_patch==TUMOR_LABEL) * (data_patch + np.mean(tgt_data[start_x:end_x, start_y:end_y, start_z:end_z]) - np.mean(data_patch))
+            tgt_data[start_z:end_z, start_x:end_x, start_y:end_y]\
+                    = (seg_patch!=TUMOR_LABEL) * tgt_data[start_z:end_z, start_x:end_x, start_y:end_y] \
+                    + (seg_patch==TUMOR_LABEL) * (data_patch + np.mean(tgt_data[start_z:end_z, start_x:end_x, start_y:end_y]) - np.mean(data_patch))
         else:
-            tgt_data[start_x:end_x, start_y:end_y, start_z:end_z]\
-                    = (seg_patch!=TUMOR_LABEL) * tgt_data[start_x:end_x, start_y:end_y, start_z:end_z] \
+            tgt_data[start_z:end_z, start_x:end_x, start_y:end_y]\
+                    = (seg_patch!=TUMOR_LABEL) * tgt_data[start_z:end_z, start_x:end_x, start_y:end_y] \
                     + (seg_patch==TUMOR_LABEL) * data_patch
 
-        tgt_seg[start_x:end_x, start_y:end_y, start_z:end_z]\
-                = (seg_patch!=TUMOR_LABEL) * tgt_seg[start_x:end_x, start_y:end_y, start_z:end_z] \
+        tgt_seg[start_z:end_z, start_x:end_x, start_y:end_y]\
+                = (seg_patch!=TUMOR_LABEL) * tgt_seg[start_z:end_z, start_x:end_x, start_y:end_y] \
                 + (seg_patch==TUMOR_LABEL) * seg_patch
         return tgt_data, tgt_seg
 
